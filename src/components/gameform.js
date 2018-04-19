@@ -7,36 +7,50 @@ class GameForm extends Component {
         this.state =
             {
             value: '',
-            lastGuess: 0,
-            answersEntered: []
+            answersEntered: [],
+            counter: 0
         };
             this.handleChange = this.handleChange.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
         }
 
         handleChange(event){
-            this.setState({value: event.target.value});
-           
+            this.setState({value: event.target.value}); 
         }
-        handleSubmit(event){
-            event.preventDefault();
+        handleSubmit(){
             const {answersEntered} = this.state;
             const newValue = Number(this.refs.number.value);
+            const inArray = answersEntered.includes(newValue)
+           if(inArray){
+               alert('Number already exists')
+           }else{
+               if(newValue < 0 || newValue > 100){
+                alert('value not in range');
+            } else{
             this.setState({
                 answersEntered: [...answersEntered, newValue],
-                value: ''
+                value: '',
+                counter: this.state.counter + 1
             }, ()=>{ 
                    this.props.submit(this.state.answersEntered);
-                    this.props.currentValue(newValue)
+                    this.props.currentValue(newValue); 
+                this.props.updateCounter(this.state.counter);
                    }
                 
             );
+             } 
+           }
             
         }
+   handleClick(event){
+        event.preventDefault();
+       this.handleSubmit();
+   }
+   
     
     
   render() {
-      
+     
     return (
         <form className="gameForm">
             <label>
@@ -45,7 +59,7 @@ class GameForm extends Component {
                 <input className="gameForm-input" type="number" ref="number" name="number" value={this.state.value} onChange={this.handleChange} placeholder='Type a number'/>
             </label>
                 <br />
-                <button className="gameForm-bttn" onClick={(event) => this.handleSubmit(event)}>Submit</button>
+                <button className="gameForm-bttn" onClick={(event) => this.handleClick(event)}>Submit</button>
                 
         </form>
     );

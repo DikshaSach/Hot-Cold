@@ -11,8 +11,9 @@ class Game extends Component {
         super(props);
         this.state = {
             numbersEntered: [],
-           value: 0,
-            randomNumber: Math.floor(Math.random() * (100 - 0) + 0)
+           value: null,
+            randomNumber: Math.floor(Math.random() * (100 - 0) + 0),
+            counter: 0
             
         };
         this.onNewRandomNumber = this.onNewRandomNumber.bind(this);
@@ -20,31 +21,40 @@ class Game extends Component {
     
     onNewRandomNumber(){  
         const random = Math.floor(Math.random() * (100 - 0) + 0);
-        
         this.setState({
             randomNumber: random,
             numbersEntered: [],
-            value: 0
+            value: null,
+            counter: 0
         })
-        console.log(this.state.numbersEntered);
+       
     }   
+     updateCounter = counter =>{
+        this.setState({
+            counter: counter
+        })
+    }
 
     currentValue = value =>{
         this.setState({value})
+        
     }
   
     submit = numbersEntered =>{
         this.setState({numbersEntered});
         console.log('Game has your values entered which are:', numbersEntered);
     }
+    
   render() {
-      
+    
     return (
       <div className="gamepage">
-        <Header triggerNewNumber={this.onNewRandomNumber}/>
+        <Header triggerNewNumber={this.onNewRandomNumber} />
         <div className="main-game-container">
+        <p>Guess#: {this.state.counter}</p>
         <HotCold {...this.state} />
-        <GameForm submit={numbersEntered =>this.submit(numbersEntered)} currentValue={value => this.currentValue(value)}/>
+    
+        <GameForm submit={numbersEntered =>this.submit(numbersEntered)} currentValue={value => this.currentValue(value)} updateCounter={counter => this.updateCounter(counter)}/>
        
         <AnswerList {...this.state} />
         

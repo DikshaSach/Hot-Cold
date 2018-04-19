@@ -1,4 +1,16 @@
-.hotcold-answer{
-   height: 40px; 
-    background-color: pink;
+
+.hotcold-actual{
+    background-color: red;
+    height: 30px;
+}
+.hotcold-actual-5{
+    background-color: #FA785C;
+    height: 30px;
+}
+.hotcold-actual-10{
+    background-color: #F8C4B9;
+    height: 30px;
+}
+.hotcold-not-actual{
+    height: 30px;
 }
