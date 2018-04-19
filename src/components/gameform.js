@@ -4,44 +4,47 @@ import './gameform.css';
 class GameForm extends Component {
     constructor(props){
         super(props);
-        this.state =
-            {
+        this.state = {
             value: '',
-            answersEntered: [],
-            counter: 0
+            answersEntered: props.numbersEntered
         };
-            this.handleChange = this.handleChange.bind(this);
-            this.handleSubmit = this.handleSubmit.bind(this);
-        }
 
-        handleChange(event){
-            this.setState({value: event.target.value}); 
-        }
-        handleSubmit(){
-            const {answersEntered} = this.state;
-            const newValue = Number(this.refs.number.value);
-            const inArray = answersEntered.includes(newValue)
-           if(inArray){
-               alert('Number already exists')
-           }else{
-               if(newValue < 0 || newValue > 100){
-                alert('value not in range');
-            } else{
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps);
+        this.setState({
+            value:'',
+            answersEntered:nextProps.numbersEntered
+        })
+    }
+
+    handleChange(event){
+        this.setState({value: event.target.value}); 
+    }
+
+    handleSubmit(){
+        const {answersEntered} = this.state;
+        const newValue = Number(this.refs.number.value);
+        const inArray = answersEntered.includes(newValue)
+        if(inArray){
+            alert('Number already exists');
+
+        }else if(newValue < 0 || newValue > 100){
+            alert('value not in range');
+        } else {
             this.setState({
-                answersEntered: [...answersEntered, newValue],
-                value: '',
-                counter: this.state.counter + 1
+                value: ''
             }, ()=>{ 
-                   this.props.submit(this.state.answersEntered);
+                this.props.submit(newValue);
                     this.props.currentValue(newValue); 
-                this.props.updateCounter(this.state.counter);
-                   }
-                
+                }
             );
-             } 
-           }
-            
-        }
+        } 
+    }
+        
    handleClick(event){
         event.preventDefault();
        this.handleSubmit();

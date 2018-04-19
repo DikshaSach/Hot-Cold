@@ -40,9 +40,12 @@ class Game extends Component {
         
     }
   
-    submit = numbersEntered =>{
-        this.setState({numbersEntered});
-        console.log('Game has your values entered which are:', numbersEntered);
+    submit = value =>{
+        this.setState({
+            numbersEntered:[...this.state.numbersEntered,value],
+            counter:this.state.counter+1
+        });
+        console.log('Game has your values entered which are:', this.state.numbersEntered);
     }
     
   render() {
@@ -54,9 +57,9 @@ class Game extends Component {
         <p>Guess#: {this.state.counter}</p>
         <HotCold {...this.state} />
     
-        <GameForm submit={numbersEntered =>this.submit(numbersEntered)} currentValue={value => this.currentValue(value)} updateCounter={counter => this.updateCounter(counter)}/>
+        <GameForm numbersEntered={this.state.numbersEntered} submit={numbersEntered =>this.submit(numbersEntered)} currentValue={value => this.currentValue(value)} updateCounter={counter => this.updateCounter(counter)}/>
        
-        <AnswerList {...this.state} />
+        <AnswerList numbersEntered={this.state.numbersEntered} />
         
 </div>
         
