@@ -8,6 +8,7 @@ class GameForm extends Component {
             value: '',
             answersEntered: props.numbersEntered
         };
+<<<<<<< HEAD
         this.handleChange = this
             .handleChange
             .bind(this);
@@ -47,6 +48,46 @@ class GameForm extends Component {
         }
     }
     handleSubmitClick(event) {
+=======
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps);
+        this.setState({
+            value:'',
+            answersEntered:nextProps.numbersEntered
+        })
+    }
+
+    handleChange(event){
+        this.setState({value: event.target.value}); 
+    }
+
+    handleSubmit(){
+        const {answersEntered} = this.state;
+        const newValue = Number(this.refs.number.value);
+        const inArray = answersEntered.includes(newValue)
+        if(inArray){
+            alert('Number already exists');
+
+        }else if(newValue < 0 || newValue > 100){
+            alert('value not in range');
+        } else {
+            this.setState({
+                value: ''
+            }, ()=>{ 
+                this.props.submit(newValue);
+                    this.props.currentValue(newValue); 
+                }
+            );
+        } 
+    }
+        
+   handleClick(event){
+>>>>>>> origin/master
         event.preventDefault();
         this.handleSubmit();
     }

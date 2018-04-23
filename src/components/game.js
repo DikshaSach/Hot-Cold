@@ -32,6 +32,7 @@ class Game extends Component {
         this.setState({value})
 
     }
+<<<<<<< HEAD
 
     submit = value => {
         this.setState({
@@ -65,6 +66,35 @@ class Game extends Component {
             </div>
         );
     }
+=======
+  
+    submit = value =>{
+        this.setState({
+            numbersEntered:[...this.state.numbersEntered,value],
+            counter:this.state.counter+1
+        });
+        console.log('Game has your values entered which are:', this.state.numbersEntered);
+    }
+    
+  render() {
+    
+    return (
+      <div className="gamepage">
+        <Header triggerNewNumber={this.onNewRandomNumber} />
+        <div className="main-game-container">
+        <p>Guess#: {this.state.counter}</p>
+        <HotCold {...this.state} />
+    
+        <GameForm numbersEntered={this.state.numbersEntered} submit={numbersEntered =>this.submit(numbersEntered)} currentValue={value => this.currentValue(value)} updateCounter={counter => this.updateCounter(counter)}/>
+       
+        <AnswerList numbersEntered={this.state.numbersEntered} />
+        
+</div>
+        
+      </div>
+    );
+  }
+>>>>>>> origin/master
 }
 
 export default Game;
