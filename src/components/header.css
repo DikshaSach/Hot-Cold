@@ -1,0 +1,39 @@
+.information{
+    position: absolute;
+    right: 30px;
+    text-align: right;
+    width: 50px;
+    height: 50px;
+    top: 25px;
+}
+.information:hover { transform: scale(1.1); }
+.playagain:hover { transform: scale(1.1); }
+.playagain{
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+}
+.box{
+    line-height: 80px;
+    top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: brown;
+    width: 90%;
+    min-height: 400px;
+    outline: 9999px solid rgba(0,0,0,0.9);
+    position: absolute;
+    z-index: 4;
+    color: black;
+    border-radius: 5px;   
+}
+@media only screen and (max-width: 500px) {
+.box{
+    line-height: normal;
+    min-height: 300px;
+}
+
+}

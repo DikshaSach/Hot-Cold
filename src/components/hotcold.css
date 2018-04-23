@@ -1,16 +1,50 @@
 
 .hotcold-actual{
+    line-height: 50px;
     background-color: red;
-    height: 30px;
+    height: 60px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .hotcold-actual-5{
-    background-color: #FA785C;
-    height: 30px;
+    line-height: 50px;
+    background-color: rgb(222, 63, 27);
+    height: 60px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .hotcold-actual-10{
-    background-color: #F8C4B9;
-    height: 30px;
+    line-height: 50px;
+    background-color: rgb(213, 107, 107);
+    height: 60px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .hotcold-not-actual{
+    line-height: 50px;
+    height: 60px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.gameOver{
+    top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: brown;
+    width: 70%;
+    position: absolute;
+    
+    outline: 9999px solid rgba(0,0,0,0.9);
+
+}
+.trophy{
+width: 200px;
+height: 200px;
+}
+button{
+    width: 100px;
     height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 13px;
 }

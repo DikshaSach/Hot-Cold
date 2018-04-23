@@ -1,6 +1,16 @@
 .answerList{
-  
+    padding-top: 10px;
+    padding-bottom: 10px;
+  background-color: rgb(223, 231, 245);
     overflow: auto;
-    height: 100px;
+   height: 100px;
+   margin: 0;
+   border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 0;
+}
+.answerListDiv{
+  width: 76%;
+  margin: 0 auto;
 }
 

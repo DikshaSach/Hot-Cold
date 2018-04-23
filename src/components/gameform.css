@@ -1,11 +1,19 @@
 
 .gameForm-input{
-    height: 20px;
+    width: 80%;
     text-align: center;
     font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 15px;
 }
+.gameForm-bttn:hover { transform: scale(1.1); }
 .gameForm-bttn{
-    width: 100px;
-    height: 20px;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
     background-color: white;
 }
