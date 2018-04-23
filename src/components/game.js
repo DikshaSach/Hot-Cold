@@ -50,7 +50,11 @@ class Game extends Component {
                 <Header triggerNewNumber={this.onNewRandomNumber}/>
                 <h1 className="title">HOT or COLD</h1>
                 <div className="main-game-container">
-                    <HotCold triggerNewNumber={this.onNewRandomNumber} handler={this.state.isOver} guess={this.state.value} randomNumber={this.state.randomNumber}/>
+                    <HotCold
+                        triggerNewNumber={this.onNewRandomNumber}
+                        handler={this.state.isOver}
+                        guess={this.state.value}
+                        randomNumber={this.state.randomNumber}/>
 
                     <GameForm
                         numbersEntered={this.state.numbersEntered}
