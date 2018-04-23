@@ -24,9 +24,10 @@ class GameForm extends Component {
         this.setState({value: event.target.value});
     }
     handleSubmit() {
-        const {answersEntered} = this.state;
+        const {answersEntered} = this.state.answersEntered;
         const newValue = Number(this.refs.number.value);
-        const inArray = answersEntered.includes(newValue)
+        const inArray = this.props.numbersEntered.includes(newValue)
+        console.log(inArray);
         if (inArray) {
             alert('Number already exists')
         } else {
@@ -45,6 +46,7 @@ class GameForm extends Component {
                 });
             }
         }
+        
     }
     handleSubmitClick(event) {
         event.preventDefault();
