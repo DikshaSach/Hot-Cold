@@ -27,7 +27,6 @@ class GameForm extends Component {
         const {answersEntered} = this.state.answersEntered;
         const newValue = Number(this.refs.number.value);
         const inArray = this.props.numbersEntered.includes(newValue)
-        console.log(inArray);
         if (inArray) {
             alert('Number already exists')
         } else {

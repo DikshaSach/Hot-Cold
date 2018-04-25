@@ -28,6 +28,7 @@ class Header extends Component {
       <nav className="gamenav">
         <input
           className="information"
+          alt="information"
           type="image"
           src={what}
           onClick={this.toggleDiv}/> {this.state.show
@@ -45,6 +46,7 @@ class Header extends Component {
           }
         <input
           className="playagain"
+          alt="play again"
           type="image"
           src={playagain}
           onClick={this.props.triggerNewNumber}/>

@@ -5,18 +5,18 @@ import Winner from './images/winner.gif';
 class HotCold extends Component {
 
     render() {
-        
         const guess = (this.props.guess);
         const actual = (this.props.randomNumber);
         if (guess === actual) {
             return (
-                <div className="hotcold-actual">You got the answer!
+                <div className="hotcold-container">
                 <div className="gameOver">
                 <h1>You won!</h1>
-                <img className="trophy" src={Winner} />
+                <img className="trophy" alt="tropy" src={Winner} />
                 <br />
                 <button onClick={this.props.triggerNewNumber}>PLAY AGAIN!</button>
                 </div>
+                
                 </div>
             );
         } else if (guess > (actual - 5) && guess < (actual + 5)) {

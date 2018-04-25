@@ -9,7 +9,6 @@ class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOver: false,
             numbersEntered: [],
             value: null,
             randomNumber: Math.floor(Math.random() * (100 - 0) + 0),
@@ -19,6 +18,7 @@ class Game extends Component {
             .onNewRandomNumber
             .bind(this);
     }
+
 
     onNewRandomNumber() {
         const random = Math.floor(Math.random() * (100 - 0) + 0);
@@ -51,6 +51,7 @@ class Game extends Component {
                 <h1 className="title">HOT or COLD</h1>
                 <div className="main-game-container">
                     <HotCold
+                        gameOver={this.state.disabled}
                         triggerNewNumber={this.onNewRandomNumber}
                         handler={this.state.isOver}
                         guess={this.state.value}
@@ -62,7 +63,8 @@ class Game extends Component {
                         currentValue={value => this.currentValue(value)}
                         updateCounter={counter => this.updateCounter(counter)}/>
                     <p>Guess#: {this.state.counter}</p>
-                    <AnswerList numbersEntered={this.state.numbersEntered}/>
+                    <AnswerList 
+                    numbersEntered={this.state.numbersEntered}/>
 
                 </div>
 
